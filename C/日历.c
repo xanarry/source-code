@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-bool isLeapYear(int);
+int isLeapYear(int);
 int getWeekDay(int, int, int);
 
 int main(int argc, char const *argv[])
@@ -29,10 +29,10 @@ int main(int argc, char const *argv[])
 	{
 		if (isLeapYear(year))
 			endDayOfMonth = 29;
-		else 
+		else
 			endDayOfMonth = 28;
 	}
-	else 
+	else
 		endDayOfMonth = 30;
 
 	int dayOfMonth = 1;
@@ -50,35 +50,35 @@ int main(int argc, char const *argv[])
 }
 
 //判断闰年
-bool isLeapYear(int y) 
+int isLeapYear(int y)
 {
 	if (y % 4 == 0 && y % 100 != 0 || y % 400 == 0)
-		return true;
-	return false;
+		return 1;
+	return 0;
 }
 
 //获取某天是星期几返回值(0-7)
 int getWeekDay(int y, int m, int d)
 {
 	//计算星期几的固定公式,Y是年D是这个日期在本年的天数
-	//W = [Y-1] + [(Y-1)/4] - [(Y-1)/100] + [(Y-1)/400] + D 
+	//W = [Y-1] + [(Y-1)/4] - [(Y-1)/100] + [(Y-1)/400] + D
 	int days = d;
 	int i;
-	for (i = 1; i < m; i++) 
+	for (i = 1; i < m; i++)
 	{
 		if (i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i == 12)
 			days += 31;
 		else if (i == 2)
 		{
-			if (isLeapYear(y)) 
+			if (isLeapYear(y))
 				days += 29;
-			else 
+			else
 				days += 28;
 		}
-		else 
-			days += 30; 
+		else
+			days += 30;
 	}
 
 	int temp = y - 1 + (int)((y - 1) / 4) - (int)((y - 1) / 100) + (int)((y - 1) / 400) + days;
 	return temp % 7;
-} 
+}
