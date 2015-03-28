@@ -1,7 +1,6 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-
 using namespace std;
 
 struct INDEX
