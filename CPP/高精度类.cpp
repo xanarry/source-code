@@ -91,6 +91,7 @@ struct BigInteger
 			{
 				/////////////两个数相乘的结果///加上上次计算的进位值
 				int temp = a.num[i] * b.num[j] + result.num[i + j];
+				cout << "a[" << i << "] * b[" << j << "] + result[" << i + j << "] = " << temp << endl;
 				result.num[i + j] =  temp % 10;//取余数保存
 				if (temp >= 10)//进位，错误相加同时进行
 					result.num[i + j + 1] += temp / 10;
@@ -196,8 +197,8 @@ struct BigInteger
 
 int main(int argc, char const *argv[])
 {
-	BigInteger a = BigInteger("175");
-	BigInteger b = BigInteger("6");
+	BigInteger a = BigInteger("23");
+	BigInteger b = BigInteger("97");
 
 	cout << a << "+" << b << "=" << (a + b) << endl;
 	cout << a << "-" << b << "=" << (a - b) << endl;
@@ -207,6 +208,6 @@ int main(int argc, char const *argv[])
 
 	BigInteger n, m;
 	cin >> n >> m;
-	cout << n + m << endl;
+	cout << n * m << endl;
 	return 0;
 }
