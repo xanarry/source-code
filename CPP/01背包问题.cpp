@@ -71,6 +71,13 @@ int main(){
                     d[i][j] = max(d[i][j], d[i-1][j-V[i-1]]+W[i-1]);//选择最大价值
             }
         }
+        for (int i = 0; i <= n; i++)
+        {
+            for (int j = 0; j <= C; j++)
+                cout << d[i][j] << " ";
+            cout << endl;
+        }
+
         printf("%d\n", d[n][C]);//最终求解的最大价值
     }
     return 0;

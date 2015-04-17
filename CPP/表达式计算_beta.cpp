@@ -83,7 +83,7 @@ int main(int argc, char const *argv[])
 	string expression;
 	//	cin >> expression;
 
-	int i = 26;
+	int i = 0;
 	const int ex_count = 27;
 	for (; i <= ex_count; i++)
 		cout << expressions[i] << calculate_expression(expressions[i]) << endl;
