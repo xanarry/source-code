@@ -26,7 +26,6 @@ int main(int argc, char const *argv[])
             }
         }
     }
-
     //根据比较结果判定是否匹配
     if (!parenthese.empty() || flag >= 0)
         cout << "unmatch" << endl;
