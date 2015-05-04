@@ -1,7 +1,0 @@
-sss = ("xiong", "yang", "is", "lovely")
-print("%s %s %s %s" % sss)
-print(sss)
-print(sss[0])
-print(sss[1])
-print(sss[2])
-print(sss[3])

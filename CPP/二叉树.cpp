@@ -111,7 +111,7 @@ bool insert_node(NODE **root, int data)
 //删除的方法是找到右子树的最小值，然后覆盖目标节点的数据，然后删除最小值的节点
 NODE* delete_node(NODE *root, int data)
 {
-	if (root == NULL || !search_node(root, data))//如果为空或者不存在目标元素
+	if (root == NULL)//如果为空或者不存在目标元素
 		return NULL;
 	else//存在元素
 	{
