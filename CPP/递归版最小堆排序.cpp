@@ -10,9 +10,6 @@ int main(int argc, char const *argv[])
 	const int N = 10;
 	//不要下标为0的元素
 	int a[N + 1] = {-1,4,1,3,2,16,9,10,14,8,7};
-
-//	build_min_heap(a, N);
-
 	heap_sort(a, N);
 	
 	for (int i = 1; i <= N; i++)

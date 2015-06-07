@@ -51,11 +51,12 @@ int main(int argc, char const *argv[])
 	queue_head->char_info = init_ch;
 	//////头结点初始化_end////////
 
+	const int len = 6;
 	//结构体数组，设定将要编码的字符集,其中left,right指针自动赋值为NULL,huffman_code自动赋值为空串
-	CHAR chars[6] = {{'a', 45}, {'b', 13}, {'c', 12}, {'d', 16}, {'e', 9}, {'f', 5}};
+	CHAR chars[len] = {{'a', 45}, {'b', 13}, {'c', 12}, {'d', 16}, {'e', 9}, {'f', 5}};
 
 	//依次插入每个字符构建最小优先级队列
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < len; i++)
 		insert(queue_head, &chars[i]);
 
 	//得到构建的霍夫曼编码树的跟节点指针
@@ -65,7 +66,7 @@ int main(int argc, char const *argv[])
 	traverse_huffman_tree(root);
 
 	//输出每个字符的霍夫曼编码
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < len; i++)
 	{
 		cout << chars[i].ch << "'s ";
 		display_huffman_code(root, chars[i].ch);

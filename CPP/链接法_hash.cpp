@@ -31,12 +31,10 @@ int main(int argc, char const *argv[])
 
 	const string names[N] = {"temp", "inintialize", "string", "struct", "size", "undershorts", "pants", "belt", "shirt", "tie", "jacket", "socks", "shoes", "watch", "Tshirt"};
 
-	cout << "insert into hash_table" << endl;
 	for (string t : names)
 		hash_insert(hash_table, t);
-	cout << "end_____________\n" << endl;
 
-	cout << "search all string in hash_table" << endl;
+	cout << "searching result:" << endl;
 	for (int i = 0; i < N; i++)
 	{
 		NODE *result = hash_search(hash_table, names[i]);

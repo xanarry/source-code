@@ -1,22 +1,28 @@
 #include <iostream>
-#include <string>
 #include <cstring>
-#include <algorithm>
+#define MAXN 2010
 using namespace std;
+int dp[MAXN][MAXN];
 
-int main(int argc, char const *argv[])
+int LCS(string a, string b)
 {
-    string a, b;
-    cin >> a >> b;
-    int len[100][100];
-    memset(len, 0, sizeof(len));
-    for (int i = 0; i < a.length(); i++)
-        for (int j = 0; j < b.length(); j++)
+    memset(dp, 0, sizeof(dp));
+    for (int i = 1; i < a.length(); i++)
+        for (int j = 1; j < a.length(); j++)
             if (a[i] == b[j])
-                len[i + 1][j + 1] = len[i][j] + 1;
+                dp[i][j] = dp[i - 1][j - 1] + 1;
             else
-                len[i + 1][j + 1] = max(len[i][j + 1], len[i + 1][j]);
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
 
-    cout << len[a.length()][b.length()] << endl;
+    return dp[a.length() - 1][b.length() - 1];
+}
+
+int main()
+{
+    string x, y;
+    cin >> x >> y;
+    x = ' ' + x;// 1234
+    y = ' ' + y;// 2345
+    cout << LCS(x, y) << endl;
     return 0;
 }

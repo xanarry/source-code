@@ -6,7 +6,7 @@ using namespace std;
 
 struct BigInteger
 {
-	static const int max_len = 1000;//数字的最大长度
+	static const int max_len = 10000;//数字的最大长度
 	int num[max_len];//保存数字的每位数到数组，数字时逆序的，1234保存格式为4321
 	int len;//数字的有效长度
 
@@ -54,8 +54,7 @@ struct BigInteger
 		{
 			int temp = a.num[i] + b.num[i];//两个数的各位数相加
 			a.num[i] = temp % 10;//求余保存到数a
-			if (temp >= 10)//实现进位
-				a.num[i + 1] += temp /= 10;
+			a.num[i + 1] += temp / 10;//实现进位
 		}
 		a.clean();//整理
 		return a;
@@ -70,7 +69,7 @@ struct BigInteger
 				if (a.num[i] < b.num[i])//不够减
 				{
 					a.num[i] = a.num[i] + 10 - b.num[i];//如果被减数不是零则加10后在相减
-					b.num[i + 1]++;//减数的下一位加1，因为向被减数的下一位，等同于在减数的下一位上加1
+					a.num[i + 1]--;//被减数的下一位减1,
 				}
 				else//如果够减则两个数直接相减
 					a.num[i] -= b.num[i];
@@ -91,10 +90,8 @@ struct BigInteger
 			{
 				/////////////两个数相乘的结果///加上上次计算的进位值
 				int temp = a.num[i] * b.num[j] + result.num[i + j];
-				cout << "a[" << i << "] * b[" << j << "] + result[" << i + j << "] = " << temp << endl;
 				result.num[i + j] =  temp % 10;//取余数保存
-				if (temp >= 10)//进位，错误相加同时进行
-					result.num[i + j + 1] += temp / 10;
+				result.num[i + j + 1] += temp / 10;//进位, 小于10的时候进0，错位相加同时进行
 			}
 		}
 		result.len = a.len + b.len;//两数相乘的最大乘数是两个乘数的长度之和
@@ -142,16 +139,13 @@ struct BigInteger
 
 	friend bool operator < (const BigInteger &a, const BigInteger &b)//定义小于运算符
 	{
-		if (a.len < b.len)//首先比较长度
-			return 1;
-		else if (a.len == b.len)//长度相同依次比较每一位数
-		{
+		if (a.len != b.len)//首先比较长度
+			return a.len - b.len;
+		else//长度相同依次比较每一位数
 			for (int i = a.len - 1; i >= 0; i--)
 				if (a.num[i] != b.num[i])//不同时才比较
 					return a.num[i] < b.num[i];
-		}
-		else
-			return 0;
+		return 0;
 	}
 
 	friend bool operator > (const BigInteger &a, const BigInteger &b)
@@ -197,17 +191,13 @@ struct BigInteger
 
 int main(int argc, char const *argv[])
 {
-	BigInteger a = BigInteger("23");
-	BigInteger b = BigInteger("97");
+	BigInteger a = BigInteger("0");
+	BigInteger b = BigInteger("0");
 
 	cout << a << "+" << b << "=" << (a + b) << endl;
 	cout << a << "-" << b << "=" << (a - b) << endl;
 	cout << a << "*" << b << "=" << (a * b) << endl;
 	cout << a << "/" << b << "=" << (a / b) << endl;
 	cout << a << "%" << b << "=" << (a % b)<< endl;
-
-	BigInteger n, m;
-	cin >> n >> m;
-	cout << n * m << endl;
 	return 0;
 }
