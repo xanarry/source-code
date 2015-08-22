@@ -95,7 +95,7 @@ f = open("scraplog.txt", "w")
 start_year = 2013
 end_year = 2014
 #专业代码范围
-start_major = 0
+start_major = 21
 end_major = 80
 #编号范围
 start_num = 0

@@ -75,7 +75,7 @@ void insertsort(int a[], int len)
 		int j = i - 1;
 		int tmp = a[i];
 
-		while ((tmp < a[j]) && (j >= 0))
+		while ((j >= 0) && (tmp < a[j]))
 		{
 			a[j + 1] = a[j];
 			j--;

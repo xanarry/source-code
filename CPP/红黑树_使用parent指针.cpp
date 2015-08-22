@@ -183,9 +183,12 @@ void rightRotate(Node **root, Node *x)
 {
     Node *y = x->left;
     x->left = y->right; 
+
     if (y->right != nil)
         y->right->parent = x;
+
     y->parent = x->parent;
+    
     if (x->parent == nil)
         *root = y;
     else
@@ -201,6 +204,7 @@ void rightRotate(Node **root, Node *x)
 
 void insert(Node **root, int n)
 {
+    //循环插入
     Node *t = *root;
     Node *parent = (*root)->parent;
 

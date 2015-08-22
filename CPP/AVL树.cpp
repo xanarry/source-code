@@ -223,6 +223,7 @@ int main(int argc, char const *argv[])
 
     traverse(root);
     cout << endl;
+    
 /*    show_node(root);
     show_node(root->left);
     show_node(root->right);

@@ -90,6 +90,5 @@ int main()
     cout << "\nhuffman code" << endl;
     for (map<char, string>::iterator iter = hcode.begin(); iter != hcode.end(); ++iter)
         cout << iter->first << " : " << iter->second << endl;
-
     return 0;
 }
