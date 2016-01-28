@@ -3,6 +3,7 @@
 #include <sstream>
 #include <cctype>
 #include <stack>
+#include <cstdlib>
 
 //宏定义，用于辅助栈中运算符的比较操作
 #define EMPTY 'E'
@@ -36,7 +37,7 @@ int main(int argc, char const *argv[])
 	expression = l;
 
 	//	cin >> expression;
-	cout << postfix_expression(expression) << endl;
+	cout << postfix_expression("-1.234/-12.345=") << endl;
 
 	return 0;
 }
