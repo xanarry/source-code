@@ -123,7 +123,7 @@ void decrease_key(HEAPSTRUCT *head, int i, int new_key)
 		else
 		{
 			//删除旧元素
-			delete_node(head, i);、
+			delete_node(head, i);
 			//插入新元素
 			insert(head, new_key);
 		}
