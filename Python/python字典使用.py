@@ -27,6 +27,9 @@ print("name:" + dict0["name"])
 #如果使用字典中已经存在的key,那么后面的只将会替换前面的值,这里会将年龄替换为22
 dict0["age"] = 22
 
+#检查字典中是否存在某个键
+"key" not in dict0
+
 #添加新的键值对,值可以是任意类型
 dict0["hobby"] = ["music", "programming"]
 #删除条目

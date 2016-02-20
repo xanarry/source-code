@@ -8,10 +8,10 @@ int main()
 	int i;
 	int to;
 	int flag;
-	printf("ÇëÊäÈëÔ­Ê®½øÖÆÊý:");
+	printf("è¯·è¾“å…¥åŽŸåè¿›åˆ¶æ•°:");
 	scanf("%d",&n);
 	flag = n;
-	printf("ÇëÊäÈë½«Òª×ª»»µÄ½øÖÆ:");
+	printf("è¯·è¾“å…¥å°†è¦è½¬æ¢çš„è¿›åˆ¶:");
 	scanf("%d",&to);
 	i = 0;
 	while(n != 0)
@@ -20,7 +20,7 @@ int main()
 		a[i++] = t;
 		n = n/to;
 	}
-	printf("%dµÄ%d½øÖÆÊýÊÇ£º",flag,to);
+	printf("%dçš„%dè¿›åˆ¶æ•°æ˜¯ï¼š",flag,to);
 	for(n = i - 1; n >= 0; n--)
 	{
 		printf("%d",a[n]);

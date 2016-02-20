@@ -7,13 +7,13 @@ int main()
 	int i = 0, j = 0;
 	for(i=0; i<13; ++i)
 	{
-		system("cls"); 		//ÏµÍ³ÇåÆÁ 
+		system("cls"); 		//ç³»ç»Ÿæ¸…å± 
 		for(j=0; j<i; ++j)
 		{
-			printf("   ");	//Êä³ö¿Õ¸ñ 
+			printf("   ");	//è¾“å‡ºç©ºæ ¼ 
 		}
-		printf("A");		//Êä³öA 
-		Sleep(540);			//ÏµÍ³ÔÝÍ£540ºÁÃë 
+		printf("A");		//è¾“å‡ºA 
+		Sleep(540);			//ç³»ç»Ÿæš‚åœ540æ¯«ç§’ 
 	}
    	//Sleep(500);
 	return 0;

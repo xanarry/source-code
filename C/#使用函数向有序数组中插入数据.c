@@ -7,14 +7,14 @@ void insert(int array[],int a, int num)
 		if(num <= array[i])
 		{
 			k = i;
-			break;			//查找位置 
+			break;			//鏌ユ壘浣嶇疆 
 		}
 	}
 	for(i = a-1; i >= k; i--)
 	{
 		array[i+1] = array[i];
 	}
-	array[k] = num;			//插入元素 
+	array[k] = num;			//鎻掑叆鍏冪礌 
 }
 int main()
 {
@@ -27,7 +27,7 @@ int main()
 	printf("\ninput a num:\n");
 	scanf("%d",&n);
 	
-	insert(a,10,n);			//调用函数 
+	insert(a,10,n);			//璋冪敤鍑芥暟 
 	
 	for(i = 0; i < 11; i++)
 	{

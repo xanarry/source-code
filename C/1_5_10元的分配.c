@@ -14,7 +14,7 @@ int main(void)
 	      	{	
 	        	if(i+j*5+k*10==n)
 			 	{ 
-	          		printf("1Ôª%2dÕÅ   ÎåÔª%2dÕÅ   Ê®Ôª%2dÕÅ",i,j,k);
+	          		printf("1å…ƒ%2då¼    äº”å…ƒ%2då¼    åå…ƒ%2då¼ ",i,j,k);
 	          		a++;
 	          		printf("\n");
 	        	}
@@ -22,6 +22,6 @@ int main(void)
 		}	
 	}
 	printf("--------------------------------\n");    
-	printf("Ò»¹²ÓĞ%lluÖÖ",a);
+	printf("ä¸€å…±æœ‰%lluç§",a);
 	return 0;
  }
