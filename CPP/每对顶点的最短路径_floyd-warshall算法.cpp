@@ -14,7 +14,7 @@ void show_matrix(int m[][100], int d)
         for (int j = 1; j <= d; j++)
         {
             if (m[i][j] == INF)
-                cout << "N ";
+                cout << "X ";
             else
                 cout << m[i][j] << " ";
         }
@@ -36,7 +36,7 @@ void floyd_warshell_shortest_path(int d)
     for (int k = 1; k <= d; k++)
         for (int i = 1; i <= d; i++)
             for (int j = 1; j <= d; j++)
-                if (pre[i][k] < INF && pre[k][j] && pre[i][j] > pre[i][k] + pre[k][j])
+                if (pre[i][j] > pre[i][k] + pre[k][j])
                     pre[i][j] = pre[i][k] + pre[k][j];
 }
 
@@ -48,6 +48,8 @@ int main(int argc, char const *argv[])
     while (n--)
     {
         cin >> u >> v >> w;
+        if (u == v)
+            w = 0;
         init[u][v] = w;
         pre[u][v] = w;
     }

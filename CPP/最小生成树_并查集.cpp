@@ -30,7 +30,7 @@ int main(int argc, char const *argv[])
 
     sort(edges, edges + m);
  
-    int p[100];
+    int p[10000];
     for (int i = 1; i <= n; i++)
         p[i] = i;
 

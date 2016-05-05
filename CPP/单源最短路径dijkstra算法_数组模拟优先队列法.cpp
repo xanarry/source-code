@@ -66,7 +66,7 @@ public:
     }
 };
 
-int gm[100][100];//graph matrix
+int gm[1000][1000];//graph matrix
 vector<int> gt[100];//graph adjacet table
 int plen[100];//shortest path
 int vertex, edge;
@@ -136,4 +136,9 @@ introduction to algorithm 2th edition p367
 5 2 3
 5 3 9
 5 4 2
+
+3 3
+1 3 1
+3 1 2
+3 2 5
 */
