@@ -3,11 +3,9 @@
 #define INF 0x7FFFFFF
 using namespace std;
 
-int init[100][100];
-int pre[100][100];
-int temp[100][100];
+int g[105][105];
 
-void show_matrix(int m[][100], int d)
+void show_matrix(int m[][105], int d)
 {  
     for (int i = 1; i <= d; i++)
     {
@@ -27,17 +25,16 @@ void init_matrix(int d)
 {
     for (int i = 1; i <= d; i++)
         for (int j = 1; j <= d; j++)
-            init[i][j] = (i == j ? 0 : INF);
+            g[i][j] = (i == j ? 0 : INF);
 }
 
 void floyd_warshell_shortest_path(int d)
 {
-    //k表示经过k个顶点i到j的最短路径,k在最前面是因为在经过多个顶点构成最短路径时, 必须建立在之前经过k-1个顶点的最短路径已经得出
     for (int k = 1; k <= d; k++)
         for (int i = 1; i <= d; i++)
             for (int j = 1; j <= d; j++)
-                if (pre[i][j] > pre[i][k] + pre[k][j])
-                    pre[i][j] = pre[i][k] + pre[k][j];
+                if (g[i][j] > g[i][k] + g[k][j])
+                    g[i][j] = g[i][k] + g[k][j];
 }
 
 int main(int argc, char const *argv[])
@@ -50,16 +47,11 @@ int main(int argc, char const *argv[])
         cin >> u >> v >> w;
         if (u == v)
             w = 0;
-        init[u][v] = w;
-        pre[u][v] = w;
+        g[u][v] = w;
     }
-    cout << "default matrix" << endl;
-    show_matrix(init, m);
-    memcpy(pre, init, sizeof(init));
 
     floyd_warshell_shortest_path(m);
-    cout << "shortest paths" << endl;
-    show_matrix(pre, m);
+    show_matrix(g, m);
     return 0;
 }
 
