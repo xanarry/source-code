@@ -100,11 +100,8 @@ int main(int argc, char const *argv[])
 {
     BinHeap heap;
     int a[10] = {32,26,65,68,19,31,24,16,21,13};
-    for (int i = 1; i < 1000; i++)
-    //for (auto i : a)
+    for (auto i : a)
         heap.push(i);
-
-    //heap.show(); cout << endl;
 
     while (heap.get_size())
         cout << heap.extra_top() << endl;

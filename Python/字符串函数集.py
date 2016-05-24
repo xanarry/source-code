@@ -27,3 +27,4 @@ a.format(plist)#格式化字符串
 r = "{0}{1}{2}".format("aaa", "bbb", "ccc")
 r = "my name is {0}".format("xxxx")
 r = "age = {age}, sex = {sex}".format(age = 12, sex = "f")
+print("age = {age}, sex = {sex}".format(age = 12, sex = "f"))

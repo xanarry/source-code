@@ -1,5 +1,4 @@
 #include <iostream>
-#include <queue>
 #include <map>
 #include <vector>
 using namespace std;
@@ -11,7 +10,6 @@ void dfs(int start)
 {
     if (!visited[start])
     {
-        cout << start << " ";
         visited[start] = true;
         for (int i = 0; i < points[start].size(); i++)
             dfs(points[start][i]);
@@ -25,17 +23,17 @@ int main(int argc, char const *argv[])
     for (int i = 0; i < n; i++)
     {
         cin >> pn >> m;//输入点编号，邻接顶点数
-        vector<int> adjs;
         for (int j = 0; j < m; j++)//输入邻接顶点
         {
             cin >> ad;
-            adjs.push_back(ad);//输入该点出度所指向的邻接顶点,因为深搜是有向的,使用vector保存
+            points[pn].push_back(ad);//输入该点出度所指向的邻接顶点,因为深搜是有向的,使用vector保存
         }
-        points[pn] = adjs;
     }
-    
     for (map<int, vector<int> >::iterator iter = points.begin(); iter != points.end(); ++iter)
         dfs(iter->first);
+    
+    for (int i = 1; i <= n; i++)
+        cout << visited[i] << endl;
     return 0;
 }
 
