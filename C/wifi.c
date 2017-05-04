@@ -5,17 +5,22 @@ int main(int argc, char const *argv[])
 {
     char ssid[64] = "xanarry";
     char key[64] = "123456789";
+    char tmp[64];
     char set[512];
     if (argc == 1) {
-        printf("input ssid: ");
-        scanf("%s", ssid);
-        printf("input password: ");
-        scanf("%s", key);
-        if (strlen(key) < 8)
+        printf("input ssid (d using default): ");
+        scanf("%s", tmp);
+        if (tmp[0] != 'd')
         {
-            printf("password at least 8 chars\n");
-            getchar(); getchar();
-            return 0;
+            strcpy(ssid, tmp);
+            printf("input password: ");
+            scanf("%s", key);
+            if (strlen(key) < 8)
+            {
+                printf("password at least 8 chars\n");
+                getchar(); getchar();
+                return 0;
+            }
         }
     }
     else

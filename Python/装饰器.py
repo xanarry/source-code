@@ -12,7 +12,7 @@ def decorator(func):
 f1 = decorator(print_list10)
 f1()
 
-@decorator#@后面的关键词是前面定义的函数,并且该函数至少要有个的参数和返回函数
+@decorator     #@后面的关键词是前面定义的函数,并且该函数至少要有个的参数和返回函数
 def output():
     print("1234567890")
 
